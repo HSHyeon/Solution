@@ -4,7 +4,7 @@ import java.util.*;
 public class WordSort {
 
     public static void sortArr(String[] arr) {
-
+        //삽입정렬
         for (int i = 0; i < arr.length; i++) {
             for (int j = i; j > 0; j--)
                 if (arr[j].length() < arr[j - 1].length()) {
