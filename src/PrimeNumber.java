@@ -9,7 +9,6 @@ public class PrimeNumber {
 
             int[] arr = new int[k+1];
 
-            if(m<2) m=2;
 
             for(int i=2;i<=k;i++){
                 arr[i] =i;
