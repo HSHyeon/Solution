@@ -1,37 +1,38 @@
 import java.util.Scanner;
 
 public class virus {
-    static int count =0;
+    static boolean[] dvisited;
+    static int[][] arr;
+    static int n, count;
+    public static void Dfs(int v){
+        dvisited[v] = true;
+        if(v!=1) count++;
+        //   System.out.print(v + " ");
+
+        for(int i=0; i<n+1; i++) {
+            if (!dvisited[i] && arr[v][i] != 0)
+                Dfs(i);
+        }
+    }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);	
-		
-		int N= sc.nextInt(); // 컴퓨터의 수
-		int M = sc.nextInt(); // 네트워크 상에 연결되어 있는 컴퓨터 쌍의 수 즉, 간선의 수
-		int V = sc.nextInt(); 
-		
-		int node[][]=new int[N+1][N+1];
-		boolean check[] = new boolean[N+1];
+        n =  sc.nextInt();
+        int m =  sc.nextInt();
 
-		for(int i=0;i<M;i++) { // 그래프 구성
-			int a=sc.nextInt();
-			int b = sc.nextInt();
-            node[a][b] = 1;
-            node[b][a] = 1;
+        arr = new int[n+1][n+1];
+        dvisited = new boolean[n+1];
+
+        count =0;
+        for(int i=0;i<m;i++){
+            int a =  sc.nextInt();
+            int b =  sc.nextInt();
+
+            arr[a][b] = arr[b][a] = 1;
+
         }
-        
-        dfs(node,check ,N);
-    
-       
+        Dfs(1);
 
+        System.out.println(count);
     }
-    public static void dfs(int[][] a, boolean[] check, int v) {  
-
-        check[v] = true;
-        for(int i=0;i<check.length;i++){
-            if(check[i]==false) dfs(a,check,i);
-            count++;
-        }
-    }
-
 }
