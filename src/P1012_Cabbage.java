@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class P1012_Cabbage {
-    static boolean[][] visited;
+    static boolean[][] visited; //없이도 배열 제거해나가면서 해도 됨
     static int[][] arr;
     static int[] answer;
-    static int[] dx = {0,1,0,-1};
-    static int[] dy = {1,0,-1,0};
+    static int[] dx = {0,1,0,-1}; //좌우
+    static int[] dy = {1,0,-1,0}; //상하
     static int count;
   //  static int N;
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class P1012_Cabbage {
                 int x = sc.nextInt();
                 int y = sc.nextInt();
 
-                arr[x+1][y+1] = 1;
+                arr[x+1][y+1] = 1; //범위 넘어가는거 신경 안쓰려고 1부터 시작하게
             }
 
             for(int i=1;i<=M;i++)
@@ -45,7 +45,7 @@ public class P1012_Cabbage {
 
 
     public static void Dfs(int v, int w){
-        visited[v][w] = true;
+        visited[v][w] = true; //BFS는 큐 사용 DFS는 재귀사용 기억하가
         for(int k=0;k<4;k++){
             int x = v + dx[k];
             int y = w + dy[k];
