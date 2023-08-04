@@ -38,7 +38,7 @@ public class P2667_EstatNum {
                 }
 
         System.out.println(answer);
-        estat.sort(Comparator.naturalOrder());
+        estat.sort(Comparator.naturalOrder()); //ArrayList 오름차순 정렬
         for(int num:estat) System.out.println(num);
 
 
